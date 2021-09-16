@@ -70,7 +70,14 @@ class _Login extends State<Login> {
                   shape: MaterialStateProperty.all<OutlinedBorder>(
                       const RoundedRectangleBorder(
                           borderRadius:
-                              BorderRadius.all(Radius.circular(50))))),
+                              BorderRadius.all(
+                                Radius.circular(
+                                  50
+                                )
+                              )
+                      )
+                  )
+              ),
             ),
           ),
           InkWell(
