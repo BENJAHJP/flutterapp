@@ -1,5 +1,5 @@
 import 'dart:ui';
-
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
@@ -12,8 +12,14 @@ class Login extends StatefulWidget {
 }
 
 class _Login extends State<Login> {
+//variables declarations
+
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
   bool _isToggled = true;
   var _toggleIcon = const Icon(Icons.remove_red_eye, color: Colors.grey);
+
+//toggle password function
 
   _togglePassword() {
     setState(() {
@@ -28,6 +34,16 @@ class _Login extends State<Login> {
     });
   }
 
+//sending email and password data to the database function
+
+  Future<String> sendLoginData() async {
+    final response = await http.post(
+        Uri.parse("http://192.168.56.1/mobile_api/adduser.php"),
+        body: {'email': email.text, 'password': password.text});
+    String data = response.body;
+    return data;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,10 +56,12 @@ class _Login extends State<Login> {
               'https://c2.staticflickr.com/8/7850/40048303933_b5559302cc_o_d.png'),
           const SizedBox(height: 32),
           TextFormField(
+            controller: email,
             decoration: const InputDecoration(
                 labelText: 'Email', hintText: 'example@gmail.com'),
           ),
           TextFormField(
+            controller: password,
             obscureText: _isToggled,
             decoration: InputDecoration(
                 labelText: 'Password',
@@ -58,9 +76,7 @@ class _Login extends State<Login> {
           const SizedBox(height: 32),
           ButtonTheme(
             child: ElevatedButton(
-              onPressed: () {
-                //do nothing
-              },
+              onPressed: sendLoginData,
               child: const Text(
                 'Login',
                 style: TextStyle(fontSize: 16, letterSpacing: 1),
@@ -70,14 +86,7 @@ class _Login extends State<Login> {
                   shape: MaterialStateProperty.all<OutlinedBorder>(
                       const RoundedRectangleBorder(
                           borderRadius:
-                              BorderRadius.all(
-                                Radius.circular(
-                                  50
-                                )
-                              )
-                      )
-                  )
-              ),
+                              BorderRadius.all(Radius.circular(50))))),
             ),
           ),
           InkWell(
