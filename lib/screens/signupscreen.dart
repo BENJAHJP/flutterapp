@@ -1,7 +1,6 @@
 import 'package:myapp/database/signup.dart';
-import 'package:myapp/screens/signupscreen.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:email_validator/email_validator.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -17,24 +16,31 @@ class _SignUpState extends State<SignUp> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
 
-//function for sending user information to the database
+//snackbar to display messages
+
+  void showInSnackBar({required String value, required BuildContext context}) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(value)));
+  }
+
+//function for sending user information to the database and checking for missing fields
 
   register() {
     if (username.text.isEmpty) {
-      print("enter username");
+      showInSnackBar(value: 'enter username', context: context);
     } else if (email.text.isEmpty) {
-      print("enter email");
+      showInSnackBar(value: 'enter email', context: context);
     } else if (password.text.isEmpty) {
-      print("enter password");
+      showInSnackBar(value: 'enter password', context: context);
     } else {
-      SignUpDatabase(username: username.text, email: email.text, password: password.text)
-      .register()
-      .then((value) => {
-          print('response: $value')
-      });
+      SignUpDatabase(
+              username: username.text,
+              email: email.text,
+              password: password.text)
+          .register()
+          .then((value) =>
+              {showInSnackBar(value: 'response.$value', context: context)});
     }
   }
-//function to check if user has entered all fields
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +62,8 @@ class _SignUpState extends State<SignUp> {
             TextFormField(
               controller: email,
               decoration: const InputDecoration(labelText: 'email'),
+              validator: (email) =>
+                  EmailValidator.validate(email!) ? 'Not a valid email.' : null,
             ),
             TextFormField(
               controller: password,

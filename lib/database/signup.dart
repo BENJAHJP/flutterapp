@@ -2,6 +2,9 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class SignUpDatabase {
+
+// variables declaration
+
   final String username;
   final String email;
   final String password;
@@ -9,6 +12,7 @@ class SignUpDatabase {
   SignUpDatabase(
       {required this.username, required this.email, required this.password});
 
+// function to register users to the database 
   Future<String> register() async {
     try {
       final response = await http.post(
