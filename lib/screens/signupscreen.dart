@@ -12,33 +12,33 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
 //variable declarations for storing user input values
 
-  TextEditingController username = TextEditingController();
-  TextEditingController email = TextEditingController();
-  TextEditingController password = TextEditingController();
+  final TextEditingController _username = TextEditingController();
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
 
 //snackbar to display messages
 
-  void showInSnackBar({required String value, required BuildContext context}) {
+  void _showInSnackBar({required String value, required BuildContext context}) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(value)));
   }
 
 //function for sending user information to the database and checking for missing fields
 
-  register() {
-    if (username.text.isEmpty) {
-      showInSnackBar(value: 'enter username', context: context);
-    } else if (email.text.isEmpty) {
-      showInSnackBar(value: 'enter email', context: context);
-    } else if (password.text.isEmpty) {
-      showInSnackBar(value: 'enter password', context: context);
+  _register() {
+    if (_username.text.isEmpty) {
+      _showInSnackBar(value: 'enter username', context: context);
+    } else if (_email.text.isEmpty) {
+      _showInSnackBar(value: 'enter email', context: context);
+    } else if (_password.text.isEmpty) {
+      _showInSnackBar(value: 'enter password', context: context);
     } else {
       SignUpDatabase(
-              username: username.text,
-              email: email.text,
-              password: password.text)
+              username: _username.text,
+              email: _email.text,
+              password: _password.text)
           .register()
           .then((value) =>
-              {showInSnackBar(value: 'response.$value', context: context)});
+              {_showInSnackBar(value: 'response.$value', context: context)});
     }
   }
 
@@ -54,26 +54,35 @@ class _SignUpState extends State<SignUp> {
                 'https://c2.staticflickr.com/8/7850/40048303933_b5559302cc_o_d.png'),
             const SizedBox(height: 32),
             TextFormField(
-              controller: username,
+              controller: _username,
               decoration: const InputDecoration(
                 labelText: 'Username',
               ),
             ),
             TextFormField(
-              controller: email,
+              controller: _email,
               decoration: const InputDecoration(labelText: 'email'),
-              validator: (email) =>
-                  EmailValidator.validate(email!) ? 'Not a valid email.' : null,
+              validator: (_email) =>
+                  _email != null && !EmailValidator.validate(_email)
+                      ? 'Not a valid email.'
+                      : null,
             ),
             TextFormField(
-              controller: password,
+              controller: _password,
               obscureText: true,
               decoration: const InputDecoration(labelText: 'password'),
+              validator: (password) {
+                if (password!.isEmpty) {
+                  return 'enter password';
+                } else {
+                  null;
+                }
+              },
             ),
             const SizedBox(height: 32),
             ElevatedButton(
               onPressed: () {
-                register();
+                _register();
               },
               child: const Text('Sign up'),
               style: ButtonStyle(
