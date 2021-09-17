@@ -4,6 +4,8 @@ import 'screens/loginscreen.dart';
 import 'screens/signupscreen.dart';
 
 void main() => runApp(MaterialApp(
+
+      debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
         '/': (context) => const Login(),
