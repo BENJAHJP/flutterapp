@@ -67,7 +67,9 @@ class _Login extends State<Login> {
           const SizedBox(height: 32),
           ButtonTheme(
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/Dashboard');
+              },
               child: const Text(
                 'Login',
                 style: TextStyle(fontSize: 16, letterSpacing: 1),
