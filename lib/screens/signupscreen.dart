@@ -42,6 +42,8 @@ class _SignUpState extends State<SignUp> {
     }
   }
 
+//validation function
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,13 +73,6 @@ class _SignUpState extends State<SignUp> {
               controller: _password,
               obscureText: true,
               decoration: const InputDecoration(labelText: 'password'),
-              validator: (password) {
-                if (password!.isEmpty) {
-                  return 'enter password';
-                } else {
-                  null;
-                }
-              },
             ),
             const SizedBox(height: 32),
             ElevatedButton(
