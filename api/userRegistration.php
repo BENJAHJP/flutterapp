@@ -7,10 +7,9 @@
 	$email = $_POST['email'];
 	$password = $_POST['password'];  
 
-	$userEmailCheck = "select email from user_registration where email = '$email' ";
-	
+	$userEmailCheck = $mysqli->prepare("select email from user_registration where email = ? ");
+	$userEmailCheck->bind_param("s", $email);
 	$emailResult = mysqli_query($connect,$userEmailCheck);
-	
 	$row = mysqli_fetch_assoc($emailResult);
 	
 	if($emailResult==isset($row['email'])){
