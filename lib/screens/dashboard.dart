@@ -11,20 +11,269 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber,
-      body: Column(
-        children: [
-          const CircleAvatar(),
-          const Text('Name of account owner'),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              ElevatedButton(onPressed: null, child: Text('New jobs')),
-              ElevatedButton(onPressed: null, child: Text('Pending')),
-              ElevatedButton(onPressed: null, child: Text('submitted jobs'))
-            ],
-          )
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(70),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Row(
+              children: const [
+                CircleAvatar(
+                  radius: 30,
+                ),
+                SizedBox(width: 30),
+                Text('Benjamin Muthui'),
+              ],
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Row(
+              children: [
+                Column(
+                  children: const [
+                    Text('Active Jobs'),
+                    Text('22'),
+                  ],
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                Column(
+                  children: const [Text('pending'), Text('45')],
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                Column(
+                  children: const [Text('submitted'), Text('45')],
+                )
+              ],
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                    child: ElevatedButton(
+                        onPressed: () {}, child: const Text('New jobs'))),
+                const SizedBox(
+                  width: 10,
+                ),
+                Expanded(
+                    child: ElevatedButton(
+                        onPressed: () {}, child: const Text('Active'))),
+                const SizedBox(
+                  width: 10,
+                ),
+                Expanded(
+                    child: ElevatedButton(
+                        onPressed: () {}, child: const Text('submitted')))
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Expanded(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Container(
+                  color: Colors.amber,
+                  child: ListView(
+                    children: [
+                      Column(
+                        children: [
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                ElevatedButton(
+                                    onPressed: () {}, child: const Text('KAX')),
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                          context, '/Cardetails');
+                                    },
+                                    child: const Text('Valuate')),
+                              ]),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                ElevatedButton(
+                                    onPressed: () {}, child: const Text('KAX')),
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                          context, '/Cardetails');
+                                    },
+                                    child: const Text('Valuate')),
+                              ]),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                ElevatedButton(
+                                    onPressed: () {}, child: const Text('KAX')),
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                          context, '/Cardetails');
+                                    },
+                                    child: const Text('Valuate')),
+                              ]),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                ElevatedButton(
+                                    onPressed: () {}, child: const Text('KAX')),
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                          context, '/Cardetails');
+                                    },
+                                    child: const Text('Valuate')),
+                              ]),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                ElevatedButton(
+                                    onPressed: () {}, child: const Text('KAX')),
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                          context, '/Cardetails');
+                                    },
+                                    child: const Text('Valuate')),
+                              ]),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                ElevatedButton(
+                                    onPressed: () {}, child: const Text('KAX')),
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                          context, '/Cardetails');
+                                    },
+                                    child: const Text('Valuate')),
+                              ]),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                ElevatedButton(
+                                    onPressed: () {}, child: const Text('KAX')),
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                          context, '/Cardetails');
+                                    },
+                                    child: const Text('Valuate')),
+                              ]),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                ElevatedButton(
+                                    onPressed: () {}, child: const Text('KAX')),
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                          context, '/Cardetails');
+                                    },
+                                    child: const Text('Valuate')),
+                              ]),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                ElevatedButton(
+                                    onPressed: () {}, child: const Text('KAX')),
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                          context, '/Cardetails');
+                                    },
+                                    child: const Text('Valuate')),
+                              ]),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                ElevatedButton(
+                                    onPressed: () {}, child: const Text('KAX')),
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                          context, '/Cardetails');
+                                    },
+                                    child: const Text('Valuate')),
+                              ]),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                ElevatedButton(
+                                    onPressed: () {}, child: const Text('KAX')),
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                          context, '/Cardetails');
+                                    },
+                                    child: const Text('Valuate')),
+                              ]),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                ElevatedButton(
+                                    onPressed: () {}, child: const Text('KAX')),
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                          context, '/Cardetails');
+                                    },
+                                    child: const Text('Valuate')),
+                              ]),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                ElevatedButton(
+                                    onPressed: () {}, child: const Text('KAX')),
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                          context, '/Cardetails');
+                                    },
+                                    child: const Text('Valuate')),
+                              ]),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                ElevatedButton(
+                                    onPressed: () {}, child: const Text('KAX')),
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                          context, '/Cardetails');
+                                    },
+                                    child: const Text('Valuate')),
+                              ]),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                ElevatedButton(
+                                    onPressed: () {}, child: const Text('KAX')),
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                          context, '/Cardetails');
+                                    },
+                                    child: const Text('Valuate')),
+                              ]),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

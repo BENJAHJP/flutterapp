@@ -6,7 +6,6 @@
 	$username = $_POST['username'];
 	$email = $_POST['email'];
 	$password = $_POST['password'];  
-
 	
 	$userEmailCheck = $database->prepare("select email from user_registration where email = ? ");
 	$userEmailCheck->bind_param("s", $email);
@@ -33,9 +32,8 @@
 			
 		}
 	}
-	
+
 	$Response[] = array("Message" => $Message);
 	
 	echo json_encode($Response);
-
 ?>

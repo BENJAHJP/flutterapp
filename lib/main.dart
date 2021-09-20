@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'screens/loginscreen.dart';
 import 'screens/signupscreen.dart';
 import 'screens/dashboard.dart';
+import 'screens/cardetails.dart';
 
 void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -10,6 +11,7 @@ void main() => runApp(MaterialApp(
       routes: {
         '/': (context) => const Login(),
         '/SignUp': (context) => const SignUp(),
-        '/Dashboard': (context) => const Dashboard()
+        '/Dashboard': (context) => const Dashboard(),
+        '/Cardetails': (context) => const Cardetails(),
       },
     ));
