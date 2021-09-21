@@ -24,7 +24,8 @@ class _CardetailsState extends State<Cardetails> {
                 children: [
                   TextFormField(
                       decoration: InputDecoration(
-                          hintText: 'Type of vehicle',
+                          hintText:
+                              'Type of vehicle type of vehicle type of vehicle type of vehicle type of vehicle type of vehicle',
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20)))),
                   const SizedBox(
@@ -36,11 +37,17 @@ class _CardetailsState extends State<Cardetails> {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20))),
                   ),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   TextFormField(
                     decoration: InputDecoration(
                         hintText: 'Country of origin',
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20))),
+                  ),
+                  const SizedBox(
+                    height: 10,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
@@ -48,17 +55,17 @@ class _CardetailsState extends State<Cardetails> {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20))),
                   ),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   TextFormField(
                     decoration: InputDecoration(
                         hintText: 'comments',
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20))),
                   ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                        hintText: 'write something inside',
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20))),
+                  const SizedBox(
+                    height: 10,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
@@ -66,11 +73,8 @@ class _CardetailsState extends State<Cardetails> {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20))),
                   ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                        hintText: 'write something inside',
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20))),
+                  const SizedBox(
+                    height: 10,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
@@ -78,11 +82,8 @@ class _CardetailsState extends State<Cardetails> {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20))),
                   ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                        hintText: 'write something inside',
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20))),
+                  const SizedBox(
+                    height: 10,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
@@ -90,17 +91,53 @@ class _CardetailsState extends State<Cardetails> {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20))),
                   ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                        hintText: 'write something inside',
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20))),
+                  const SizedBox(
+                    height: 10,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
                         hintText: 'write something inside',
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20))),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                        hintText: 'write something inside',
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20))),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                        hintText: 'write something inside',
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20))),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                        hintText: 'write something inside',
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20))),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                        hintText: 'write something inside',
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20))),
+                  ),
+                  const SizedBox(
+                    height: 10,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
@@ -111,7 +148,11 @@ class _CardetailsState extends State<Cardetails> {
                   const SizedBox(
                     height: 30,
                   ),
-                  ElevatedButton(onPressed: () {}, child: const Text('Next'))
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.popAndPushNamed(context, '/Photos');
+                      },
+                      child: const Text('Next'))
                 ],
               ),
             )

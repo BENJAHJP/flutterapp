@@ -8,6 +8,8 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+  final String _name = 'Benjamin Muthui';
+  final int _activeJobs = 22;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,12 +19,19 @@ class _DashboardState extends State<Dashboard> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Row(
-              children: const [
-                CircleAvatar(
+              children: [
+                const CircleAvatar(
                   radius: 30,
                 ),
-                SizedBox(width: 30),
-                Text('Benjamin Muthui'),
+                const SizedBox(width: 30),
+                Text(_name),
+                const SizedBox(
+                  width: 30,
+                ),
+                InkWell(
+                  onTap: () {},
+                  child: const Icon(Icons.logout),
+                )
               ],
             ),
             const SizedBox(
@@ -31,9 +40,9 @@ class _DashboardState extends State<Dashboard> {
             Row(
               children: [
                 Column(
-                  children: const [
-                    Text('Active Jobs'),
-                    Text('22'),
+                  children: [
+                    const Text('Active Jobs'),
+                    Text('$_activeJobs'),
                   ],
                 ),
                 const SizedBox(
@@ -80,7 +89,8 @@ class _DashboardState extends State<Dashboard> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Container(
-                  color: Colors.amber,
+                  padding: const EdgeInsets.all(20),
+                  color: Colors.grey,
                   child: ListView(
                     children: [
                       Column(
