@@ -10,14 +10,28 @@ class Photos extends StatefulWidget {
 }
 
 class _PhotosState extends State<Photos> {
-  File? image;
+  File? cameraImage;
+  File? deviceImage;
 
-  Future getImage() async {
+  Future getImageCamera() async {
     try {
-      final image = await ImagePicker().pickImage(source: ImageSource.camera);
-      if (image == null) return;
-      final imageTemporary = File(image.path);
-      setState(() => this.image = imageTemporary);
+      final cameraImage =
+          await ImagePicker().pickImage(source: ImageSource.camera);
+      if (cameraImage == null) return;
+      final imageTemporary = File(cameraImage.path);
+      setState(() => this.cameraImage = imageTemporary);
+    } catch (e) {
+      print('failed to pick image: $e');
+    }
+  }
+
+  Future getImageDevice() async {
+    try {
+      final deviceImage =
+          await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (deviceImage == null) return;
+      final imageTemporary = File(deviceImage.path);
+      setState(() => this.deviceImage = imageTemporary);
     } catch (e) {
       print('failed to pick image: $e');
     }
@@ -26,14 +40,33 @@ class _PhotosState extends State<Photos> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Attach photos'),
-      ),
-      body: Container(
-          child: image == null
-              ? const Text('Upload an image')
-              : Image.file(image!)),
-      floatingActionButton: FloatingActionButton(onPressed: getImage),
-    );
+        appBar: AppBar(
+          title: const Text('Attach photos'),
+        ),
+        body: Column(
+          children: [
+            Container(
+                child: cameraImage == null
+                    ? const Text('Upload an image')
+                    : Image.file(
+                        cameraImage!,
+                        width: 170,
+                        height: 160,
+                      )),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                ElevatedButton(
+                    onPressed: getImageCamera, child: const Icon(Icons.camera)),
+                ElevatedButton(
+                    onPressed: getImageDevice, child: const Icon(Icons.image))
+              ],
+            )
+          ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: getImageCamera,
+          child: const Icon(Icons.upload),
+        ));
   }
 }
