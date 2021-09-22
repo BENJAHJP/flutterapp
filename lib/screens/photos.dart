@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
+import 'package:http/http.dart' as http;
 
 class Photos extends StatefulWidget {
   const Photos({Key? key}) : super(key: key);
@@ -34,6 +35,20 @@ class _PhotosState extends State<Photos> {
       setState(() => this.deviceImage = imageTemporary);
     } catch (e) {
       print('failed to pick image: $e');
+    }
+  }
+
+  Future uploadImages() async {
+    final uri = Uri.parse('');
+    var request = http.MultipartRequest('POST', uri);
+    var pic = await http.MultipartFile.fromPath("image", cameraImage!.path);
+    request.files.add(pic);
+    var response = await request.send();
+
+    if (response.statusCode == 200) {
+      print('image uploaded successfully');
+    } else {
+      print('image was not uploaded');
     }
   }
 
