@@ -1,4 +1,4 @@
-import 'package:myapp/database/signup.dart';
+import 'package:myapp/controller/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 
